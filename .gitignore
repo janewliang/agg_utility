@@ -1,0 +1,6 @@
+*.RData
+*.Rhistory
+*.pdf
+*.png
+*.DS_Store
+rsconnect/*

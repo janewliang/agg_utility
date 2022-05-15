@@ -5,7 +5,7 @@ https://janewliang.shinyapps.io/agg_utility/) associated with the paper
 
 > **Liang, J. W., Green, R. C., and Kraft, P. (2022). A multi-gene, multi-disease uncertainty utility for selecting genes for panel testing.**
 
-The app uses the `rhandsontable` package to incorporate interactive data tables, as well as the`plotly` and `ggplot2` packages for visualization. Please see the `ui.R` and `server.R` files for more information. 
+The app uses the `rhandsontable` package to incorporate interactive data tables, as well as the `plotly` and `ggplot2` packages for visualization. Please see the `ui.R` and `server.R` files for more information. 
 
 Those interested in using the aggregate utility directly should peruse the code and documentation in `functions.R`. Some example usage follows: 
 

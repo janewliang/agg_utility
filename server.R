@@ -5,6 +5,10 @@ library(rhandsontable)
 library(ggplot2)
 library(plotly)
 
+
+# Set background to be white for all ggplots
+theme_set(theme_classic())
+
 # Define server logic
 shinyServer(function(input, output) {
     
@@ -154,17 +158,17 @@ shinyServer(function(input, output) {
         scale_fact = 2 * max(net_utility_hi)
         p = ggplot(thresh_plot_df) + 
             geom_line(aes(x=delta_10, y=net_utility, group = 1,
-                          text = paste("FN/FP Utility Cost:", round(delta_10, 5), 
+                          text = paste("FN/FP Utility Cost Ratio:", round(delta_10, 5), 
                                        "<br>Net Utility:", round(net_utility, 5)), 
                           color = "Net Utility", linetype = "Net Utility")) + 
             geom_ribbon(aes(x=delta_10, ymin=lo, ymax=hi, group = 1,
-                            text = paste("FN/FP Utility Cost:", round(delta_10, 5),  
+                            text = paste("FN/FP Utility Cost Ratio:", round(delta_10, 5),  
                                          "<br>2.5% Net Utility:", round(lo, 5), 
                                          "<br>97.5% Net Utility:", round(hi, 5))), 
                         alpha=0.2) + 
             facet_wrap(~gene, ncol = 3) + 
             geom_line(aes(x=delta_10, y = (prob_pos - 0.5) * scale_fact, group = 1, 
-                          text = paste("FN/FP Utility Cost:", round(delta_10, 5),  
+                          text = paste("FN/FP Utility Cost Ratio:", round(delta_10, 5),  
                                        "<br>Probability of Positive Net Utility:", 
                                        round((prob_pos - 0.5) * scale_fact, 5)), 
                           color = "Probability of Positive Net Utility", 
@@ -190,8 +194,9 @@ shinyServer(function(input, output) {
                                              "Reference Line"), 
                                   guide = guide_legend(title = NULL)) +
             theme(axis.title.y.right = element_text(color = "firebrick3"), 
-                  axis.text.y.right = element_text(color = "firebrick3")) +
-            xlab("FN/FP Utility Cost") + ylab("Net Utility of Testing for Gene")
+                  axis.text.y.right = element_text(color = "firebrick3"), 
+                  panel.border = element_rect(color = "black", fill = NA)) +
+            xlab("FN/FP Utility Cost Ratio") + ylab("Net Utility of Testing for Gene")
         
         # Width of the Shiny app
         width = get_width()

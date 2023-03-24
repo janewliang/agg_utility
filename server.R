@@ -158,19 +158,20 @@ shinyServer(function(input, output) {
         scale_fact = 2 * max(net_utility_hi)
         p = ggplot(thresh_plot_df) + 
             geom_line(aes(x=delta_10, y=net_utility, group = 1,
-                          text = paste("FN/FP Utility Cost Ratio:", round(delta_10, 5), 
-                                       "<br>Net Utility:", round(net_utility, 5)), 
+                          text = paste("Utility Cost Ratio:", signif(delta_10, 3), 
+                                       "<br>Net Utility:", signif(net_utility, 3)), 
                           color = "Net Utility", linetype = "Net Utility")) + 
             geom_ribbon(aes(x=delta_10, ymin=lo, ymax=hi, group = 1,
-                            text = paste("FN/FP Utility Cost Ratio:", round(delta_10, 5),  
-                                         "<br>2.5% Net Utility:", round(lo, 5), 
-                                         "<br>97.5% Net Utility:", round(hi, 5))), 
+                            text = paste("Utility Cost Ratio:", signif(delta_10, 3),  
+                                         "<br>Net Utility:", signif(net_utility, 3), 
+                                         "<br>2.5% Net Utility:", signif(lo, 3), 
+                                         "<br>97.5% Net Utility:", signif(hi, 3))), 
                         alpha=0.2) + 
             facet_wrap(~gene, ncol = 3) + 
             geom_line(aes(x=delta_10, y = (prob_pos - 0.5) * scale_fact, group = 1, 
-                          text = paste("FN/FP Utility Cost Ratio:", round(delta_10, 5),  
+                          text = paste("Utility Cost Ratio:", signif(delta_10, 3),  
                                        "<br>Probability of Positive Net Utility:", 
-                                       round((prob_pos - 0.5) * scale_fact, 5)), 
+                                       signif((prob_pos - 0.5) * scale_fact, 3)), 
                           color = "Probability of Positive Net Utility", 
                           linetype = "Probability of Positive Net Utility")) +
             coord_cartesian(ylim = c(-0.01, 0.05)) + 
@@ -196,7 +197,7 @@ shinyServer(function(input, output) {
             theme(axis.title.y.right = element_text(color = "firebrick3"), 
                   axis.text.y.right = element_text(color = "firebrick3"), 
                   panel.border = element_rect(color = "black", fill = NA)) +
-            xlab("FN/FP Utility Cost Ratio") + ylab("Net Utility of Testing for Gene")
+            xlab("Utility Cost Ratio") + ylab("Net Utility of Testing for Gene")
         
         # Width of the Shiny app
         width = get_width()

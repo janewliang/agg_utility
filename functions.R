@@ -3,11 +3,11 @@
 #' @param prev Prevalence of carrying a pathogenic variant of the gene
 #' @param pen Cumulative lifetime penetrance for the disease, conditional on 
 #' carrying a pathogenic variant of the gene
-#' @param d_01 Utility cost associated with a false positive test for the gene, 
-#' in relation to the disease
-#' @param d_10 Utility cost associated with a false negative test for the gene, 
-#' in relation to the disease
-#' @param K Utility cost (financial and psychological) associated with 
+#' @param d_01 Disutility associated with a G+D- result for the gene, in 
+#' relation to the disease
+#' @param d_10 Disutility associated with a G-D+ result for the gene, in 
+#' relation to the disease
+#' @param K Disutility (financial and psychological) associated with 
 #' conducting the test, regardless of results
 #' 
 #' @return Net utility as a single output value
@@ -21,11 +21,11 @@ Delta_ij = function(prev, pen, d_01, d_10, K) {
 #' @param prev Prevalence of carrying a pathogenic variant of the gene
 #' @param pen Cumulative lifetime penetrance for the disease, conditional on 
 #' carrying a pathogenic variant of the gene
-#' @param d_01 Utility cost associated with a false positive test for the gene, 
-#' in relation to the disease
-#' @param d_10 Utility cost associated with a false negative test for the gene, 
-#' in relation to the disease
-#' @param K Utility cost (financial and psychological) associated with 
+#' @param d_01 Disutility associated with a G+D- result for the gene, in 
+#' relation to the disease
+#' @param d_10 Disutility associated with a G-D+ result for the gene, in 
+#' relation to the disease
+#' @param K Disutility (financial and psychological) associated with 
 #' conducting the test, regardless of results
 #' @param prob Quantile probability desired
 #' @param precision Hypothetical trial size used to motivate the choice of 
@@ -49,11 +49,11 @@ Delta_ij_quantile = function(prev, pen, d_01, d_10, K, prob, precision) {
 #' @param prev Prevalence of carrying a pathogenic variant of the gene
 #' @param pen Cumulative lifetime penetrance for the disease, conditional on 
 #' carrying a pathogenic variant of the gene
-#' @param d_01 Utility cost associated with a false positive test for the gene, 
-#' in relation to the disease
-#' @param d_10 Utility cost associated with a false negative test for the gene, 
-#' in relation to the disease
-#' @param K Utility cost (financial and psychological) associated with 
+#' @param d_01 Disutility associated with a G+D- result for the gene, in 
+#' relation to the disease
+#' @param d_10 Disutility associated with a G-D+ result for the gene, in 
+#' relation to the disease
+#' @param K Disutility (financial and psychological) associated with 
 #' conducting the test, regardless of results
 #' @param precision Hypothetical trial size used to motivate the choice of 
 #' parameters in the Beta uncertainty distribution

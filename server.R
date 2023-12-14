@@ -12,9 +12,9 @@ theme_set(theme_classic())
 # Define server logic
 shinyServer(function(input, output) {
     
-    # Normalize utility cost associated with a false positive
+    # Normalize disutility associated with a G+D- result
     d_01 = 1
-    # Range of utility costs associated with a false negative
+    # Range of disutilities associated with a G-D+ result
     delta_10_vect = 10^seq(-1, 1, by = 0.1)
     # Test utility
     K = 0
@@ -158,18 +158,18 @@ shinyServer(function(input, output) {
         scale_fact = 2 * max(net_utility_hi)
         p = ggplot(thresh_plot_df) + 
             geom_line(aes(x=delta_10, y=net_utility, group = 1,
-                          text = paste("Utility Cost Ratio:", signif(delta_10, 3), 
+                          text = paste("Utility Ratio:", signif(delta_10, 3), 
                                        "<br>Net Utility:", signif(net_utility, 3)), 
                           color = "Net Utility", linetype = "Net Utility")) + 
             geom_ribbon(aes(x=delta_10, ymin=lo, ymax=hi, group = 1,
-                            text = paste("Utility Cost Ratio:", signif(delta_10, 3),  
+                            text = paste("Utility Ratio:", signif(delta_10, 3),  
                                          "<br>Net Utility:", signif(net_utility, 3), 
                                          "<br>2.5% Net Utility:", signif(lo, 3), 
                                          "<br>97.5% Net Utility:", signif(hi, 3))), 
                         alpha=0.2) + 
             facet_wrap(~gene, ncol = 3) + 
             geom_line(aes(x=delta_10, y = (prob_pos - 0.5) * scale_fact, group = 1, 
-                          text = paste("Utility Cost Ratio:", signif(delta_10, 3),  
+                          text = paste("Utility Ratio:", signif(delta_10, 3),  
                                        "<br>Probability of Positive Net Utility:", 
                                        signif((prob_pos - 0.5) * scale_fact, 3)), 
                           color = "Probability of Positive Net Utility", 
@@ -197,7 +197,7 @@ shinyServer(function(input, output) {
             theme(axis.title.y.right = element_text(color = "firebrick3"), 
                   axis.text.y.right = element_text(color = "firebrick3"), 
                   panel.border = element_rect(color = "black", fill = NA)) +
-            xlab("Utility Cost Ratio") + ylab("Net Utility of Testing for Gene")
+            xlab("Utility Ratio") + ylab("Net Utility of Testing for Gene")
         
         # Width of the Shiny app
         width = get_width()

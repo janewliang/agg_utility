@@ -22,14 +22,14 @@ shinyUI(fluidPage(
                    tags$li("Empty rows and rows with missing information will 
                            be ignored."), 
                    tags$li("Invalid table values will raise an error."), 
-                   tags$li("The test disutility cost (regardless of results) is 
+                   tags$li("The test disutility (regardless of results) is 
                            assumed to be 0.")),
                p("Hover over the plots to see values for the net utility 
                  (estimate, 2.5%, and 97.5%) and the probability of the net 
                  utility being positive at different ratios for the disutility 
-                 cost of testing negative for the gene but developing the 
-                 disease vs. the disutility cost of testing positive for the 
-                 gene but not developing the disease.")), 
+                 of testing negative for the gene but developing the disease 
+                 vs. the disutility of testing positive for the gene but not 
+                 developing the disease.")), 
         
         # Table
         column(7, rHandsontableOutput("table_of_values"), 

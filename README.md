@@ -3,7 +3,7 @@
 This repository contains the source code for the [R Shiny app](
 https://janewliang.shinyapps.io/agg_utility/) associated with the paper 
 
-> **Liang, J. W., Green, R. C., and Kraft, P. (2023). A framework evaluating the utility of multi-gene, multi-disease population-based panel testing that accounts for uncertainty in penetrance estimates.**
+> **Liang, J. W., Christensen, K. D., Green, R. C., and Kraft, P. (2023). A framework evaluating the utility of multi-gene, multi-disease population-based panel testing that accounts for uncertainty in penetrance estimates.**
 
 The app uses the `rhandsontable` package to incorporate interactive data tables, as well as the `plotly` and `ggplot2` packages for visualization. Please see the `ui.R` and `server.R` files for more information. 
 
